@@ -1,7 +1,7 @@
 A server app built using [Shelf](https://pub.dev/packages/shelf),
 configured to enable running with [Docker](https://www.docker.com/).
 
-This sample code handles HTTP GET requests to `/` and `/echo/<message>`
+This sample code handles HTTP GET requests to `/` and `/drinks/`
 
 # Running the sample
 
@@ -19,7 +19,7 @@ And then from a second terminal:
 ```
 $ curl http://0.0.0.0:8080
 Hello, World!
-$ curl http://0.0.0.0:8080/echo/I_love_Dart
+$ curl http://0.0.0.0:8080/drinks/
 I_love_Dart
 ```
 

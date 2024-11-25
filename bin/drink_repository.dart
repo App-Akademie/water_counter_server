@@ -59,6 +59,7 @@ class DrinkRepository {
 
   // Load drinks from the file
   Future<void> _loadDrinksFromFile() async {
+    _drinks.clear();
     if (await File(_filePath).exists()) {
       final content = await File(_filePath).readAsString();
       final List<dynamic> jsonList = jsonDecode(content);

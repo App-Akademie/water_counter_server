@@ -29,7 +29,7 @@ void main() async {
         headers: {'Content-Type': 'application/json'});
   });
 
-  router.delete('/drinks/', (Request request) async {
+  router.delete('/drinks', (Request request) async {
     repository.removeAllDrinks();
     return Response.ok('Drink deleted successfully');
   });
