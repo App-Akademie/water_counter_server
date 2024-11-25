@@ -26,7 +26,6 @@ class DrinkRepository {
     return newDrink;
   }
 
-  // Find a drink by ID
   Drink? findDrinkById(int id) {
     _loadDrinksFromFile();
     for (final drink in _drinks) {
@@ -37,14 +36,12 @@ class DrinkRepository {
     return null;
   }
 
-  // Remove a drink by ID
   void removeAllDrinks() {
     _loadDrinksFromFile();
     _drinks.clear();
     _saveDrinksToFile();
   }
 
-  // Remove a drink by ID
   bool removeDrinkById(int id) {
     _loadDrinksFromFile();
     for (int i = 0; i < _drinks.length; i++) {
@@ -57,7 +54,6 @@ class DrinkRepository {
     return false;
   }
 
-  // Load drinks from the file
   Future<void> _loadDrinksFromFile() async {
     _drinks.clear();
     if (await File(_filePath).exists()) {
@@ -73,7 +69,6 @@ class DrinkRepository {
     }
   }
 
-  // Save drinks to the file
   Future<void> _saveDrinksToFile() async {
     final List<Map<String, dynamic>> jsonList = [];
     for (final drink in _drinks) {
