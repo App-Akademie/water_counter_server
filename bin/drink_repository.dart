@@ -15,10 +15,10 @@ class DrinkRepository {
     return _drinks;
   }
 
-  Future<Drink> addDrink() async {
+  Future<Drink> addDrink(DateTime newDrinkTime) async {
     await _loadDrinksFromFile();
     final newId = _nextId++;
-    final newDrink = Drink(id: newId, timeOfDrink: DateTime.now());
+    final newDrink = Drink(id: newId, timeOfDrink: newDrinkTime);
     _drinks.add(newDrink);
     // Wir müssen hierauf nicht unbedingt warten.
     _saveDrinksToFile();

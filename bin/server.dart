@@ -24,7 +24,11 @@ void main() async {
   });
 
   router.post('/drinks', (Request request) async {
-    final Drink newDrink = await repository.addDrink();
+    final String newDrinkTimeJson = await request.readAsString();
+    final String newDrinkTimeDecoded = jsonDecode(newDrinkTimeJson);
+    final DateTime newDrinkTime = DateTime.parse(newDrinkTimeDecoded);
+
+    final Drink newDrink = await repository.addDrink(newDrinkTime);
     return Response.ok(jsonEncode(newDrink),
         headers: {'Content-Type': 'application/json'});
   });
